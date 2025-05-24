@@ -1,31 +1,110 @@
-# NetSentry: Real-Time Network Threat Detection
 
-NetSentry is a lightweight intrusion detection system written in Python.
-It uses packet sniffing, signature-based and anomaly-based detection to alert on potential threats.
+# NetSentry
 
-## Features
-- Real-time packet analysis using `scapy`
-- Signature-based detection of blacklisted IPs
-- Basic anomaly detection (packet flood detection)
-- Logs alerts to file and prints them in terminal
+NetSentry is a lightweight network monitoring tool designed to detect suspicious network activity through **signature-based** and **anomaly-based** detection mechanisms. It leverages packet sniffing using `scapy`, maintains blacklists for signature detection, and logs alerts to file and console.
 
-## Usage
+---
+
+## 🛡 Features
+
+- 📡 Real-time packet sniffing
+- 🔍 Signature-based detection using IP blacklists
+- 📈 Anomaly detection based on traffic frequency
+- ⚠️ Alert logging (console and file)
+- 🧪 Unit tests for signature detection
+- 🔧 Configurable settings via `settings.json`
+
+---
+
+## 🗂 Project Structure
+
+```
+
+netsentry/
+├── netsentry.py                  # Main packet sniffer
+├── config/
+│   └── settings.json             # Configurable detection settings
+├── detection/
+│   ├── anomaly\_detector.py       # Anomaly detection logic
+│   └── signatures.py             # Signature detection logic
+├── logger/
+│   └── alert\_logger.py           # Logging functionality
+├── utils/
+│   └── packet\_utils.py           # Packet summarizer
+├── tests/
+│   └── test\_signatures.py        # Unit tests for signature detection
+└── requirements.txt              # Python dependencies
+
+````
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/netsentry.git
+cd netsentry
+````
+
+### 2. Install dependencies
+
 ```bash
 pip install -r requirements.txt
+```
+
+### 3. Run NetSentry
+
+```bash
 sudo python netsentry.py
 ```
 
-## Folder Structure
-- `detection/`: Detection logic
-- `logger/`: Logging alerts
-- `utils/`: Packet utility functions
-- `config/`: Configuration files
-- `tests/`: Unit tests
-
-## Future Improvements
-- Integration with VirusTotal or AbuseIPDB
-- Slack/email alerting
-- Web interface with Flask
+> ℹ️ `sudo` may be required for raw packet sniffing privileges.
 
 ---
-This project is ideal for showcasing your cybersecurity skills and Python programming proficiency.
+
+## ⚙️ Configuration
+
+Edit the `config/settings.json` file to customize:
+
+* **Blacklisted IPs**
+* **Packet threshold**
+* **Detection interval**
+
+Example:
+
+```json
+{
+  "blacklist_ips": ["123.45.67.89"],
+  "packet_threshold": 10,
+  "interval_seconds": 2
+}
+```
+
+---
+
+## 🧪 Running Tests
+
+Run unit tests using:
+
+```bash
+python -m unittest tests/test_signatures.py
+```
+
+---
+
+## 📋 Dependencies
+
+* `scapy`: Packet sniffing and parsing
+* `pandas`, `matplotlib`, `requests`: Reserved for future enhancements (currently unused)
+
+Install all using:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 📝 developed by Manjeet 🦦
