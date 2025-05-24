@@ -1,0 +1,5 @@
+{
+    "blacklist_ips": ["123.45.67.89"],
+    "packet_threshold": 10,
+    "interval_seconds": 2
+}
